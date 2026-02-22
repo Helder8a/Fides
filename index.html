@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>FIDES | Fundación para la Investigación y Desarrollo de Sucre</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <meta name="description"
+        content="FIDES es una ONG dedicada al Desarrollo Humano Sostenible en Sucre y la Costa Caribe Colombiana. Líderes en proyectos sociales, culturales y ambientales desde 1983.">
+    <meta name="keywords"
+        content="ONG Sucre, FIDES Sincelejo, desarrollo social Caribe, investigación Sucre, proyectos ambientales Colombia, Francisco Benitez">
+    <meta name="author" content="FIDES - HBO Architech">
+    <link rel="canonical" href="https://fids.org/index.html">
+
+    <meta property="og:title" content="FIDES | Fundación para la Investigación y Desarrollo de Sucre">
+    <meta property="og:description"
+        content="Transformando realidades en el Caribe Colombiano a través de la equidad social y la sostenibilidad.">
+    <meta property="og:image" content="img/about-1.jpg">
+    <meta property="og:url" content="https://fids.org">
+    <meta property="og:type" content="website">
+
+    <link href="img/favicon.ico.png" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "Fundación para la Investigación y Desarrollo de Sucre - FIDES",
+      "url": "https://fids.org",
+      "logo": "https://fids.org/img/favicon.ico.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 23c # 48-74",
+        "addressLocality": "Sincelejo",
+        "addressRegion": "Sucre",
+        "addressCountry": "CO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+57-3128284509",
+        "contactType": "Información institucional"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --fides-blue: #002d5b;
+            --fides-primary: #007bff;
+            --fides-accent: #00d2ff;
+        }
+
+        /* ACCESIBILIDAD: Mejora de contraste */
+        .text-white-50 {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .navbar.sticky-top {
+            transition: 0.5s;
+            background: rgba(0, 45, 91, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-item img {
+            animation: kenburns 20s infinite alternate;
+            filter: brightness(0.7);
+        }
+
+        @keyframes kenburns {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+        .image-container-premium {
+            position: relative;
+            padding: 30px;
+            z-index: 1;
+        }
+
+        .main-hero-img {
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-container-premium::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(45deg, var(--fides-primary), var(--fides-accent));
+            border-radius: 40px;
+            z-index: 0;
+            transform: translate(15px, -15px);
+            opacity: 0.15;
+        }
+
+        .image-container-premium:hover .main-hero-img {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.3);
+        }
+
+        .presentation-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .text-justified-premium {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            padding: 12px 35px;
+            font-weight: 600;
+            transition: 0.5s;
+        }
+
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-premium:hover::before {
+            left: 100%;
+        }
+
+        /* CONVERSIÓN: WhatsApp Flotante Automatizado */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(15deg);
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SEGURIDAD: Banner de Cookies */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #212529;
+            color: white;
+            padding: 15px;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 3px solid var(--fides-primary);
+        }
+
+        /* CONTENIDO: Estilos para Contador de Impacto */
+        .fact-item {
+            background: rgba(0, 123, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .fact-item:hover {
+            background: var(--fides-primary);
+            transform: translateY(-10px);
+        }
+
+        .fact-item:hover * {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cookie-banner">
+        <div class="container d-flex justify-content-between align-items-center">
+            <small>Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra <a href="#"
+                    class="text-primary text-decoration-underline">Política de Privacidad (Ley 1581)</a>.</small>
+            <button class="btn btn-sm btn-primary rounded-pill px-3"
+                onclick="this.parentElement.parentElement.style.display='none'">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+
+    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="top-bar text-white-50 row gx-0 align-items-center d-none d-lg-flex"
+            style="background: rgba(0, 29, 35, 0.8);">
+            <div class="col-lg-6 px-5 text-start">
+                <small><i class="fa fa-map-marker-alt me-2"></i>Sincelejo, Sucre, Colombia.</small>
+                <small class="ms-4"><i class="fa fa-envelope me-2"></i>fidessuc@gmail.com</small>
+            </div>
+            <div class="col-lg-6 px-5 text-end">
+                <small>Síguenos:</small>
+                <a class="text-white-50 ms-3" href="" aria-label="Síguenos en Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="text-white-50 ms-3" href="" aria-label="Síguenos en Instagram"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5" aria-label="Navegación Principal">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <span class="fw-bold text-primary m-0 h1"><span class="text-white">FIDES</span></span>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-label="Abrir Menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="proyectos.html" class="nav-item nav-link">Proyectos</a>
+                    <a href="contact.html" class="nav-item nav-link">Contáctanos</a>
+                </div>
+                <div class="d-none d-lg-flex ms-2">
+                    <a class="btn btn-primary btn-premium" href="don">Donar ahora</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="ms-3 d-none d-lg-flex align-items-center bg-light rounded-pill px-3 py-1 border">
+            <i class="fa fa-language text-primary me-2"></i>
+            <select id="language-picker" class="form-select form-select-sm border-0 bg-transparent"
+                style="cursor: pointer;">
+                <option value="es">Español</option>
+                <option value="en">English (AI)</option>
+                <option value="fr">Français (AI)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="img/carousel-1.jpg" alt="FIDES Social">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 pt-5">
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Cambiemos el mundo con
+                                        humanidad</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Fundación para la
+                                        Investigación y Desarrollo de Sucre - FIDES</p>
+                                    <a class="btn btn-primary py-3 px-5 animated slideInUp btn-premium"
+                                        href="proyectos.html">Explorar Proyectos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-2.jpg" alt="FIDES Impacto">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 pt-5">
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Salvemos más vidas con
+                                        nuestra mano amiga</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Más de 40 años transformando
+                                        realidades en el Caribe Colombiano.</p>
+                                    <a class="btn btn-primary py-3 px-5 animated slideInUp btn-premium"
+                                        href="contact.html">Unirse ahora</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev"
+                aria-label="Diapositiva Anterior">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next"
+                aria-label="Diapositiva Siguiente">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="spotify-card p-2 rounded-4">
+                        <iframe style="border-radius:15px"
+                            src="https://open.spotify.com/embed/artist/3HHabEv6ZE3mfWGLm9ADw2?utm_source=generator&theme=0"
+                            width="100%" height="352" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="text-primary text-uppercase mb-2">// Hito Cultural</h6>
+                    <h1 class="display-6 mb-4">Rescate de la Música Autóctona de Sucre</h1>
+                    <p class="mb-4">"Bajo el liderazgo de FIDES y el respaldo de la Inter-American Foundation (IAF),
+                        nace esta producción discográfica histórica que captura la esencia rítmica de nuestra tierra.
+                        Este álbum es la memoria viva de las comunidades sucreñas. La obra se viste de gala con una carátula magistral, autoría del reconocido maestro
+                        Wilfrido Ortega Rey, lanzado en el año 1992."</p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <div class="btn-sm-square bg-primary rounded-circle">
+                                    <i class="fa fa-music text-white"></i>
+                                </div>
+                                <span class="ms-2 fw-bold">Ritmos Ancestrales</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <div class="btn-sm-square bg-primary rounded-circle">
+                                    <i class="fa fa-compact-disc text-white"></i>
+                                </div>
+                                <span class="ms-2 fw-bold">Calidad Digital</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://open.spotify.com/album/TU_ID_AQUI" target="_blank" class="btn-spotify">
+                            <i class="fab fa-spotify me-2"></i> Escuchar Álbum Completo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
+            <div class="fact-item shadow-sm">
+                <i class="fa fa-calendar-check fa-3x text-primary mb-3"></i>
+                <h2 class="text-primary mb-1 counter-value" data-toggle="counter-up">40</h2>
+                <p class="fw-medium mb-0 text-dark">Años de Experiencia</p>
+            </div>
+        </div>
+        <div class="col-md-4 wow fadeIn" data-wow-delay="0.3s">
+            <div class="fact-item shadow-sm">
+                <i class="fa fa-users fa-3x text-primary mb-3"></i>
+                <h2 class="text-primary mb-1 counter-value" data-toggle="counter-up">6200</h2>
+                <p class="fw-medium mb-0 text-dark">Familias Beneficiadas</p>
+            </div>
+        </div>
+        <div class="col-md-4 wow fadeIn" data-wow-delay="0.5s">
+            <div class="fact-item shadow-sm">
+                <i class="fa fa-diagram-project fa-3x text-primary mb-3"></i>
+                <h2 class="text-primary mb-1 counter-value" data-toggle="counter-up">64</h2>
+                <p class="fw-medium mb-0 text-dark">Proyectos Ejecutados</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="image-container-premium">
+                        <img class="img-fluid main-hero-img" src="img/about-1.jpg"
+                            alt="Proyectos de desarrollo humano FIDES en Sucre">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                    <article class="presentation-card">
+                        <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Nuestra
+                            Esencia</div>
+                        <h2 class="display-5 mb-4" style="color: var(--fides-blue);">Compromiso con el Desarrollo
+                            Sostenible en el Caribe</h2>
+
+                        <div class="bg-primary text-white rounded-3 p-4 mb-4 shadow-sm">
+                            <p class="mb-1 opacity-75">Presentación Institucional</p>
+                            <h3 class="text-white m-0 h5">Francisco Benitez R. - <span class="fw-light">Founder</span>
+                            </h3>
+                        </div>
+
+                        <div class="text-justified-premium mb-4">
+                            <p>FIDES es una Organización No Gubernamental (ONG) constituida en 1983 para contribuir al
+                                Desarrollo Humano Sostenible en el Departamento de Sucre. Ejecutamos programas sociales,
+                                económicos, culturales y ambientales con criterios de equidad social y participación
+                                ciudadana.</p>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3">
+                            <a class="btn btn-primary btn-premium" href="proyectos.html">Ver Impacto</a>
+                            <a class="btn btn-outline-primary btn-premium" href="contact.html">Contáctanos</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="https://wa.me/573128284509?text=Hola%20FIDES,%20deseo%20hablar%20con%20el%20asistente%20IA"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <div class="d-inline-block rounded-pill bg-white text-primary py-1 px-3 mb-3 shadow-sm">Voces de la
+                    Comunidad</div>
+                <h1 class="display-6 mb-5">Impacto en el Territorio</h1>
+            </div>
+
+            <div id="comunidadCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center">
+                                <div class="bg-white rounded p-5 shadow-sm border-top border-primary border-5">
+                                    <i class="fa fa-quote-left fa-3x text-primary mb-4" style="opacity: 0.2;"></i>
+                                    <p class="fs-4 fw-normal mb-4 italic">"Gracias al apoyo técnico de la fundación,
+                                        nuestra asociación de pequeños productores ahora tiene un modelo de negocio
+                                        sostenible que protege nuestras fuentes hídricas."</p>
+                                    <hr class="w-25 mx-auto">
+                                    <h5 class="mb-1">Asociación de Productores de Sucre</h5>
+                                    <span class="text-primary fw-bold">Sector Agropecuario</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center">
+                                <div class="bg-white rounded p-5 shadow-sm border-top border-primary border-5">
+                                    <i class="fa fa-quote-left fa-3x text-primary mb-4" style="opacity: 0.2;"></i>
+                                    <p class="fs-4 fw-normal mb-4">"El trabajo de investigación social que realizan nos
+                                        ha permitido identificar las necesidades reales de nuestros jóvenes y buscar
+                                        soluciones concretas."</p>
+                                    <hr class="w-25 mx-auto">
+                                    <h5 class="mb-1">Comunidad Educativa Regional</h5>
+                                    <span class="text-primary fw-bold">Desarrollo Humano</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center">
+                                <div class="bg-white rounded p-5 shadow-sm border-top border-primary border-5">
+                                    <i class="fa fa-quote-left fa-3x text-primary mb-4" style="opacity: 0.2;"></i>
+                                    <p class="fs-4 fw-normal mb-4">"FIDES no solo trae proyectos, trae esperanza y
+                                        conocimiento técnico que se queda con nosotros para el futuro de nuestras
+                                        familias."</p>
+                                    <hr class="w-25 mx-auto">
+                                    <h5 class="mb-1">Líderes de Acción Comunal</h5>
+                                    <span class="text-primary fw-bold">Gestión Territorial</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#comunidadCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#comunidadCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <p class="d-inline-block border rounded-pill text-primary px-4 mb-3">Nuestros Aliados</p>
+                <h6 class="text-uppercase text-muted" style="letter-spacing: 2px;">Empresas que impulsan el desarrollo
+                    de Sucre</h6>
+            </div>
+            <div class="row align-items-center justify-content-center g-5">
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img class="img-fluid logo-aliado" src="img/logo-empresa-1.png" alt="Logo Aliado FIDES">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img class="img-fluid logo-aliado" src="img/logo-empresa-2.png" alt="Logo Aliado FIDES">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img class="img-fluid logo-aliado" src="img/logo-empresa-3.png" alt="Logo Aliado FIDES">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img class="img-fluid logo-aliado" src="img/logo-empresa-4.png" alt="Logo Aliado FIDES">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4 bg-white border-top border-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
+                    <small class="text-uppercase fw-bold text-muted" style="letter-spacing: 1px;">Entidad Vigilada y
+                        Certificada</small>
+                </div>
+                <div class="col-lg-8">
+                    <div class="d-flex justify-content-around align-items-center flex-wrap gap-4">
+                        <div class="sello-transparencia text-center">
+                            <img src="Logos/DIAN.webp" alt="Régimen Tributario Especial DIAN"
+                                style="height: 40px; filter: grayscale(100%);">
+                            <p class="mb-0" style="font-size: 10px;">Régimen Especial</p>
+                        </div>
+                        <div class="sello-transparencia text-center">
+                            <img src="Logos/CCSJO.webp" alt="Cámara de Comercio de Sincelejo"
+                                style="height: 40px; filter: grayscale(100%);">
+                            <p class="mb-0" style="font-size: 10px;">CC Sincelejo</p>
+                        </div>
+                        <div class="sello-transparencia text-center">
+                            <i class="fas fa-shield-alt text-primary mb-1" style="font-size: 24px;"></i>
+                            <p class="mb-0 fw-bold" style="font-size: 10px; color: #28a745;">DONACIÓN SEGURA</p>
+                        </div>
+                        <div class="sello-transparencia text-center">
+                            <i class="fas fa-balance-scale text-muted mb-1" style="font-size: 24px;"></i>
+                            <p class="mb-0" style="font-size: 10px;">ESAL Sin Ánimo de Lucro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid bg-dark text-white-50 footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <span class="h1 fw-bold text-primary mb-4"><span class="text-white">FIDES</span></span>
+                    <p>Fundación para la Investigación y Desarrollo de Sucre - FIDES</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square me-1" href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square me-1" href="" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square me-1" href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square me-0" href="" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Dirección:</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Calle 23c # 48-74</p>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Sincelejo, Sucre, Colombia.</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+57 3128284509</p>
+                    <p><i class="fa fa-envelope me-3"></i>fidessuc@gmail.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Enlaces rápidos:</h5>
+                    <a class="btn btn-link" href="">Sobre nosotros</a>
+                    <a class="btn btn-link" href="">Contáctanos</a>
+                    <a class="btn btn-link" href="">Nuestros Servicios</a>
+                    <a class="btn btn-link" href="">Términos & Condiciones</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Blog y Noticias:</h5>
+                    <p>Suscríbete para recibir noticias de nuestros proyectos.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5 text-white" type="email"
+                            placeholder="Tu email" aria-label="Suscribirse al boletín">
+                        <button type="button"
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Unirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="https://fids.org">FIDES</a>, Todos los derechos reservados.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Diseñado Por <a href="https://fids.org">HBO Architech</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const animateCounters = () => {
+                const counters = document.querySelectorAll('[data-toggle="counter-up"]');
+
+                counters.forEach(counter => {
+                    const target = +counter.innerText;
+                    const speed = 2000; // Tiempo total de la animación en milisegundos
+                    const increment = target / (speed / 16); // 16ms es aprox 1 frame a 60fps
+
+                    const updateCount = () => {
+                        const current = +counter.innerText;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current + increment);
+                            setTimeout(updateCount, 16);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+
+                    // Iniciar animación cuando el elemento sea visible
+                    const observer = new IntersectionObserver((entries) => {
+                        if (entries[0].isIntersecting) {
+                            counter.innerText = "0"; // Reset para empezar desde cero
+                            updateCount();
+                            observer.unobserve(counter);
+                        }
+                    }, { threshold: 0.5 });
+
+                    observer.observe(counter);
+                });
+            };
+
+            animateCounters();
+        });
+    </script>
+
+    <div id="ai-chat-container" style="position: fixed; bottom: 100px; right: 30px; z-index: 9999; display: none;">
+        <div
+            style="width: 300px; background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); overflow: hidden;">
+            <div style="background: #001D23; color: #FF6F0F; padding: 15px; font-weight: bold;">
+                <i class="fa fa-robot me-2"></i> Asistente Virtual FIDES
+            </div>
+            <div id="ai-messages" style="height: 250px; padding: 15px; overflow-y: auto; font-size: 14px; color: #333;">
+                <p>Hola, soy la IA de FIDES. Puedo contarte sobre nuestros proyectos de cacao, tilapia o cómo donar.
+                    ¿Qué te gustaría saber?</p>
+            </div>
+            <div style="padding: 10px; border-top: 1px solid #eee;">
+                <input type="text" id="ai-input-text" placeholder="Escribe tu duda..."
+                    style="width: 100%; border: 1px solid #ddd; border-radius: 5px; padding: 5px;">
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="ai-toggle" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+
+</html>
