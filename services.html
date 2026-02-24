@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Nuestros Servicios | FIDES - Fundación para la Investigación y Desarrollo de Sucre</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <meta name="description"
+        content="Conoce el portafolio de servicios de FIDES: Estudios y consultorías, ejecución de obras civiles, asistencia técnica rural, proyectos sociales y ambientales en la Costa Caribe.">
+    <meta name="keywords"
+        content="Servicios FIDES, consultoría Sucre, proyectos de desarrollo social, obras civiles Caribe, asistencia técnica rural, proyectos ambientales ONG">
+    <meta name="author" content="FIDES - HBO Architech">
+    <link rel="canonical" href="https://fids.org/servicios.html">
+
+    <meta property="og:title" content="Nuestros Servicios | FIDES">
+    <meta property="og:description"
+        content="Impulsamos el desarrollo humano sostenible mediante consultorías, obras civiles, proyectos ambientales y asistencia técnica en el Caribe Colombiano.">
+    <meta property="og:image" content="img/about-1.jpg">
+    <meta property="og:url" content="https://fids.org/servicios.html">
+    <meta property="og:type" content="website">
+
+    <link href="img/favicon.ico.png" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --fides-blue: #002d5b;
+            --fides-primary: #007bff;
+            --fides-accent: #00d2ff;
+        }
+
+        .text-white-50 {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .navbar.sticky-top {
+            transition: 0.5s;
+            background: rgba(0, 45, 91, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Estilos de Servicios */
+        .service-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--fides-primary);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 123, 255, 0.1);
+            color: var(--fides-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--fides-primary);
+            color: #fff;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .service-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--fides-primary);
+            font-size: 14px;
+        }
+
+        /* Utilidades FIDES */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            padding: 12px 35px;
+            font-weight: 600;
+            transition: 0.5s;
+        }
+
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-premium:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(15deg);
+            color: white;
+        }
+
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #212529;
+            color: white;
+            padding: 15px;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 3px solid var(--fides-primary);
+        }
+
+        /* Hero Secundario */
+        .page-header {
+            background: linear-gradient(rgba(0, 45, 91, 0.8), rgba(0, 45, 91, 0.8)), url(img/carousel-1.jpg) center center no-repeat;
+            background-size: cover;
+            padding: 120px 0 60px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="top-bar text-white-50 row gx-0 align-items-center d-none d-lg-flex"
+            style="background: rgba(0, 29, 35, 0.8);">
+            <div class="col-lg-6 px-5 text-start">
+                <small><i class="fa fa-map-marker-alt me-2"></i>Sincelejo, Sucre, Colombia.</small>
+                <small class="ms-4"><i class="fa fa-envelope me-2"></i>fidessuc@gmail.com</small>
+            </div>
+            <div class="col-lg-6 px-5 text-end">
+                <small>Síguenos:</small>
+                <a class="text-white-50 ms-3" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="text-white-50 ms-3" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center">
+                <img src="Logos/Logo1.png" alt="Logo FIDES" style="height: 50px; width: 50px; object-fit: cover;"
+                    class="rounded-circle shadow-sm me-2">
+                <span class="fw-bold text-primary m-0 h1"><span class="text-white">FIDES</span></span>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="proyectos.html" class="nav-item nav-link">Proyectos</a>
+                    <a href="services.html" class="nav-item nav-link active">Servicios</a>
+                    <a href="contact.html" class="nav-item nav-link">Contáctanos</a>
+                </div>
+                <div class="d-none d-lg-flex ms-2">
+                    <a class="btn btn-primary btn-premium" href="don">Donar ahora</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white mb-4 animated slideInDown">Nuestros Servicios</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Inicio</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Servicios</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="d-inline-block rounded-pill bg-light text-primary py-1 px-3 mb-3 shadow-sm">Oferta
+                        Institucional</div>
+                    <h2 class="display-6 mb-4">Soluciones Integrales para el Desarrollo</h2>
+                    <p class="fs-5 text-muted">La ejecución de FIDES mediante Programas y Proyectos, se hace con la
+                        intención de potenciar y desarrollar las capacidades de las personas y grupos sociales,
+                        convirtiéndolos en sujetos y actores constructores de su desarrollo.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa fa-drafting-compass"></i>
+                        </div>
+                        <h4 class="mb-3">Estudios y Consultorías</h4>
+                        <p class="text-muted mb-4">Servicios integrales de planeación, diseño y estructuración.</p>
+                        <ul class="service-list">
+                            <li>Estudios y diseños de Infraestructura.</li>
+                            <li>Estudios de preinversion agropecuarios.</li>
+                            <li>Sistemas de riego y drenaje.</li>
+                            <li>Alcantarillados y Acueductos.</li>
+                            <li>Viviendas, Escuelas y Colegios.</li>
+                            <li>Vías urbanas y rurales.</li>
+                            <li>Estudios de Impacto Ambiental.</li>
+                            <li>Planes de Desarrollo y Ordenamiento Territorial.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa fa-hard-hat"></i>
+                        </div>
+                        <h4 class="mb-3">Obras Civiles</h4>
+                        <p class="text-muted mb-4">Desarrollamos infraestructura física orientada a mejorar las
+                            condiciones de vida de la región.</p>
+                        <ul class="service-list">
+                            <li>Ejecución de obras.</li>
+                            <li>Construcción de obras civiles.</li>
+                            <li>Estanques y Embalses.</li>
+                            <li>Bodegas y pistas de secad.</li>
+                            <li>Silos y cuartos fríos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <h4 class="mb-3">Desarrollo Social y Político</h4>
+                        <p class="text-muted mb-4">Fortalecimiento del tejido social y fomento de la democracia activa.
+                        </p>
+                        <ul class="service-list">
+                            <li>Asesoría en participación social.</li>
+                            <li>Capacitación comunitaria.</li>
+                            <li>Temas de ciudadanía y democracia.</li>
+                            <li>Proyectos con enfoque diferencial.</li>
+                            <li>Organización y montaje de fondos de apoyo a la microempresa.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa fa-seedling"></i>
+                        </div>
+                        <h4 class="mb-3">Asistencia Técnica Rural</h4>
+                        <p class="text-muted mb-4">Acompañamiento especializado para el campo y la producción.</p>
+                        <ul class="service-list">
+                            <li>Promoción y Organización de Formas Asociativas.</li>
+                            <li>Asistencia Técnica Social y Empresarial.</li>
+                            <li>Montaje de sistemas sostenibles de producción agropecuaria.</li>
+                            <li>Asistencia Técnica a Cultivos.</li>
+                            <li>Montaje de Agroindustrias.</li>
+                            <li>Especies Menores y Piscicultura/Acuicultura.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa fa-leaf"></i>
+                        </div>
+                        <h4 class="mb-3">Proyectos Ambientales</h4>
+                        <p class="text-muted mb-4">Promovemos una conciencia ecológica ciudadana y la defensa del medio
+                            ambiente.</p>
+                        <ul class="service-list">
+                            <li>Capacitación ambiental.</li>
+                            <li>Proyectos de reforestación.</li>
+                            <li>Estudios de ordenamiento y planes de manejo.</li>
+                            <li>Planes Ambientales.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa fa-hand-holding-usd"></i>
+                        </div>
+                        <h4 class="mb-3">Otros Servicios (Gestión)</h4>
+                        <p class="text-muted mb-4">Transparencia y eficiencia en el manejo de recursos.</p>
+                        <ul class="service-list">
+                            <li>Administración de recursos para proyectos y/o obras civiles de Municipios o
+                                Departamentos.</li>
+                            <li>Administración de recursos para fondos rotarios de créditos.</li>
+                            <li>Atención a microempresarios, campesinos, desplazados y mujeres.</li>
+                            <li>Administración de recursos para obras civiles comunitarias.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-primary text-uppercase mb-2">// Población Objetivo</h6>
+                    <h2 class="display-6 mb-4">A quiénes dirigimos nuestro esfuerzo</h2>
+                    <p class="mb-4">La población con la cual interactúa FIDES son campesinos, microempresarios,
+                        artesanos, desplazados, pescadores, mujeres, jóvenes, niños y niñas, pertenecientes a los
+                        estratos 1 y 2 de la Costa Caribe Colombiana.</p>
+                    <div class="bg-white p-4 rounded shadow-sm border-start border-5 border-primary">
+                        <p class="fst-italic mb-0">"La satisfacción y el disfrute pleno de los derechos humanos de todas
+                            las personas de la Costa Caribe constituyen el propósito máximo de la intervención de
+                            FIDES."</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="bg-white p-4 rounded text-center shadow-sm h-100">
+                                <i class="fa fa-book-open fa-3x text-primary mb-3"></i>
+                                <h6 class="mb-0">Investigación Social</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-white p-4 rounded text-center shadow-sm h-100">
+                                <i class="fa fa-hands-helping fa-3x text-primary mb-3"></i>
+                                <h6 class="mb-0">Mejorar Nivel de Vida</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-white p-4 rounded text-center shadow-sm h-100">
+                                <i class="fa fa-handshake fa-3x text-primary mb-3"></i>
+                                <h6 class="mb-0">Concertación y Redes</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-white p-4 rounded text-center shadow-sm h-100">
+                                <i class="fa fa-landmark fa-3x text-primary mb-3"></i>
+                                <h6 class="mb-0">Democracia Participativa</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <div class="d-inline-block rounded-pill bg-light text-primary py-1 px-3 mb-3 shadow-sm">Nuestra Red
+                </div>
+                <h2 class="display-6 mb-4">Entidades con Convenios de Cooperación</h2>
+                <p>Propiciamos la concertación de esfuerzos y recursos de los organismos no gubernamentales entre si y
+                    con organismos similares, privados y/o oficiales del país y/o del exterior.</p>
+            </div>
+            <div class="row g-4 justify-content-center text-center wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6">
+                    <h5 class="mb-3 text-primary">Internacionales</h5>
+                    <p class="mb-1">INTERAMERCAN FOUNDATION (EE.UU)</p>
+                    <p class="mb-1">FUNDACIÓN PANAMERICANA PARA EL DESARROLLO (EE.UU)</p>
+                    <p class="mb-1">MISSEREOR (Alemania)</p>
+                    <p class="mb-1">KMB (Austria)</p>
+                    <p class="mb-1">NOVIB - HOLANDA</p>
+                    <p class="mb-1">UNIÓN EUROPEA</p>
+                    <p class="mb-1">ORGANIZACIÓN DE ESTADOS IBEROAMERICANOS - OEI</p>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="mb-3 text-primary">Nacionales</h5>
+                    <p class="mb-1 text-muted small">Ministerio de Agricultura y Desarrollo Rural, FONADE, ECOFONDO,
+                        Fondo para la Acción Ambiental y la Niñez, CARSUCRE, Gobernación del Departamento de Sucre,
+                        Fondo de Inversión para la Paz (Presidencia de la República), entre otros.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4 bg-white border-top border-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
+                    <small class="text-uppercase fw-bold text-muted" style="letter-spacing: 1px;">Entidad Vigilada y
+                        Certificada</small>
+                </div>
+                <div class="col-lg-8">
+                    <div class="d-flex justify-content-around align-items-center flex-wrap gap-4">
+                        <div class="sello-transparencia text-center">
+                            <i class="fas fa-file-invoice-dollar text-secondary mb-1" style="font-size: 24px;"></i>
+                            <p class="mb-0" style="font-size: 10px;">Régimen Especial</p>
+                        </div>
+                        <div class="sello-transparencia text-center">
+                            <i class="fas fa-building text-secondary mb-1" style="font-size: 24px;"></i>
+                            <p class="mb-0" style="font-size: 10px;">CC Sincelejo</p>
+                        </div>
+                        <div class="sello-transparencia text-center">
+                            <i class="fas fa-shield-alt text-primary mb-1" style="font-size: 24px;"></i>
+                            <p class="mb-0 fw-bold" style="font-size: 10px; color: #28a745;">DONACIÓN SEGURA</p>
+                        </div>
+                        <div class="sello-transparencia text-center">
+                            <i class="fas fa-balance-scale text-muted mb-1" style="font-size: 24px;"></i>
+                            <p class="mb-0" style="font-size: 10px;">ESAL Sin Ánimo de Lucro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid bg-dark text-white-50 footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="Logos/Logo1.png" alt="Logo FIDES"
+                            style="height: 60px; width: 60px; object-fit: cover;"
+                            class="rounded-circle bg-white p-1 me-3">
+                        <span class="h1 fw-bold text-primary m-0"><span class="text-white">FIDES</span></span>
+                    </div>
+                    <p>Fundación para la Investigación y Desarrollo de Sucre - FIDES</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square me-1" href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square me-1" href="" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square me-1" href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square me-0" href="" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Dirección:</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Calle 23c # 48-74</p>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Sincelejo, Sucre, Colombia.</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+57 3128284509</p>
+                    <p><i class="fa fa-envelope me-3"></i>fidessuc@gmail.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Enlaces rápidos:</h5>
+                    <a class="btn btn-link" href="index.html">Sobre nosotros</a>
+                    <a class="btn btn-link" href="contact.html">Contáctanos</a>
+                    <a class="btn btn-link" href="">Nuestros Servicios</a>
+                    <a class="btn btn-link" href="">Términos & Condiciones</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Blog y Noticias:</h5>
+                    <p>Suscríbete para recibir noticias de nuestros proyectos.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5 text-white" type="email"
+                            placeholder="Tu email" aria-label="Suscribirse al boletín">
+                        <button type="button"
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Unirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="https://fids.org">FIDES</a>, Todos los derechos reservados.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Diseñado Por <a href="https://fids.org">HBO Architech</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573128284509?text=Hola%20FIDES,%20deseo%20conocer%20mas%20sobre%20sus%20servicios"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="cookie-banner">
+        <div class="container d-flex justify-content-between align-items-center">
+            <small>Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra <a href="#"
+                    class="text-primary text-decoration-underline">Política de Privacidad (Ley 1581)</a>.</small>
+            <button class="btn btn-sm btn-primary rounded-pill px-3"
+                onclick="this.parentElement.parentElement.style.display='none'">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
