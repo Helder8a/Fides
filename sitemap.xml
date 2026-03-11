@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://fids.org/index.html</loc>
+        <loc>https://fundafides.org/index.html</loc>
         <lastmod>2026-03-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
 
     <url>
-        <loc>https://fids.org/proyectos.html</loc>
+        <loc>https://fundafides.org/proyectos.html</loc>
         <lastmod>2026-03-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
 
     <url>
-        <loc>https://fids.org/services.html</loc>
+        <loc>https://fundafides.org/services.html</loc>
         <lastmod>2026-03-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
 
     <url>
-        <loc>https://fids.org/donate.html</loc>
+        <loc>https://fundafides.org/donate.html</loc>
         <lastmod>2026-03-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.70</priority>
     </url>
 
     <url>
-        <loc>https://fids.org/contact.html</loc>
+        <loc>https://fundafides.org/contact.html</loc>
         <lastmod>2026-03-11</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.50</priority>
     </url>
 
     <url>
-        <loc>https://fids.org/privacidad.html</loc>
+        <loc>https://fundafides.org/privacidad.html</loc>
         <lastmod>2026-03-11</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.30</priority>
