@@ -883,11 +883,3 @@
 .fa-shield-alt {
     color: #28a745 !important;
 }
-
-/* Regla para uniformar las imágenes */
-.img-uniforme {
-    width: 100%;           /* Ocupa el 100% del ancho de su contenedor */
-    height: 220px;         /* Define la altura fija que quieras (p. ej. 220px, 250px, etc.) */
-    object-fit: cover;     /* Recorta y reescala automáticamente manteniendo la proporción */
-    object-position: center; /* Mantener el encuadre centrado */
-}
