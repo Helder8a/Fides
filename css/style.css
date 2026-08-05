@@ -883,3 +883,234 @@
 .fa-shield-alt {
     color: #28a745 !important;
 }
+
+/* ==========================================================================
+   REFINAMIENTO DE DISEÑO Y MICRO-INTERACCIONES (OVERRIDE PROFESIONAL)
+   ========================================================================== */
+
+/* 1. UNIFICACIÓN DE PALETA E IDENTIDAD VISUAL */
+:root {
+    --primary: #FF6F0F;             /* Naranja Institucional */
+    --primary-hover: #e05e08;
+    --dark-bg: #001D23;             /* Azul/Verde Oscuro Profundo */
+    --fides-primary: #FF6F0F;       /* Normalización de variable duplicada */
+    --fides-secondary: #ff8c3b;
+    --fides-dark: #001D23;
+    --card-shadow: 0 10px 30px -10px rgba(0, 29, 35, 0.08);
+    --card-shadow-hover: 0 20px 45px -10px rgba(0, 29, 35, 0.16);
+    --fides-radius: 16px;
+    --easing-apple: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. MEJORA DE NAVEGACIÓN (NAVBAR GLASSMORPHISM REAL) */
+.fixed-top {
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+}
+
+.navbar .navbar-nav .nav-link {
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    position: relative;
+    transition: color 0.3s var(--easing-apple);
+}
+
+/* Indicador deslizante sutil bajo los enlaces del menú */
+.navbar .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 15px;
+    left: 50%;
+    background-color: var(--primary);
+    transition: all 0.35s var(--easing-apple);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.navbar .navbar-nav .nav-link:hover::after,
+.navbar .navbar-nav .nav-link.active::after {
+    width: 50%;
+}
+
+/* 3. PERFECCIONAMIENTO DE BOTONES Y CALL TO ACTION (CTA) */
+.btn-primary, .btn-premium {
+    background: linear-gradient(135deg, var(--primary) 0%, #ff8533 100%) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 20px rgba(255, 111, 15, 0.28) !important;
+    transition: all 0.4s var(--easing-apple) !important;
+}
+
+.btn-primary:hover, .btn-premium:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 12px 28px rgba(255, 111, 15, 0.4) !important;
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
+    color: #ffffff !important;
+}
+
+/* Destello metálico al pasar sobre botones premium */
+.btn-premium::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent) !important;
+}
+
+/* 4. REDISEÑO ELEGANTE DE TARJETAS (PROJECTS, SERVICES & CAUSES) */
+.project-item, .service-item, .causes-item {
+    border-radius: var(--fides-radius) !important;
+    border: 1px solid rgba(0, 29, 35, 0.06) !important;
+    background: #ffffff !important;
+    box-shadow: var(--card-shadow) !important;
+    transition: all 0.4s var(--easing-apple) !important;
+}
+
+.project-item:hover, .service-item:hover, .causes-item:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: var(--card-shadow-hover) !important;
+    border-color: rgba(255, 111, 15, 0.3) !important;
+}
+
+/* Zoom progresivo y suave a imágenes dentro de tarjetas */
+.project-item img, .causes-item img, .team-item img {
+    transition: transform 0.7s var(--easing-apple) !important;
+}
+
+.project-item:hover img, .causes-item:hover img {
+    transform: scale(1.06) !important;
+}
+
+/* 5. TARJETAS DE CONTADORES E IMPACTO (FACTS) */
+.fact-item, .fact-item-premium {
+    background: #ffffff !important;
+    border-radius: var(--fides-radius) !important;
+    border: 1px solid rgba(0, 29, 35, 0.08) !important;
+    box-shadow: var(--card-shadow) !important;
+    transition: all 0.4s var(--easing-apple) !important;
+}
+
+.fact-item:hover, .fact-item-premium:hover {
+    transform: translateY(-8px) !important;
+    background: #ffffff !important;
+    box-shadow: var(--card-shadow-hover) !important;
+    border-color: var(--primary) !important;
+}
+
+.counter-value, .fact-item h2 {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* 6. CHATBOT Y BOTÓN DE WHATSAPP CON FEEDBACK FLUIDO */
+.whatsapp-float {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35) !important;
+    transition: all 0.4s var(--easing-apple) !important;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.12) translateY(-3px) !important;
+    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.5) !important;
+}
+
+#ai-chat-container > div {
+    border-radius: 20px !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 15px 35px rgba(0, 29, 35, 0.15) !important;
+}
+
+/* 7. REFINAMIENTO DEL FOOTER */
+.footer {
+    background: linear-gradient(180deg, #00151a 0%, #000c0f 100%) !important;
+}
+
+.footer .btn.btn-square {
+    border-radius: 50% !important;
+    transition: all 0.3s var(--easing-apple) !important;
+}
+
+.footer .btn.btn-square:hover {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #ffffff !important;
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   MEJORAS COMPLEMENTARIAS DE UX, FORMULARIOS Y TIPOGRAFÍA (ONLY CSS)
+   ========================================================================== */
+
+/* 1. MEJORA EN CAMPOS DE FORMULARIO (INPUTS Y SELECTS) */
+.form-control, .form-select {
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 29, 35, 0.15) !important;
+    padding: 12px 16px !important;
+    transition: all 0.3s var(--easing-apple) !important;
+    background-color: #ffffff !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(255, 111, 15, 0.15) !important;
+    outline: none !important;
+}
+
+/* Label flotante estilizado */
+.form-floating label {
+    color: #6c757d;
+    padding-left: 16px;
+}
+
+/* 2. LOGOS DE ALIADOS Y SELLOS DE TRANSPARENCIA */
+.sello-transparencia, .logo-aliado {
+    filter: grayscale(100%);
+    opacity: 0.65;
+    transition: all 0.4s var(--easing-apple) !important;
+}
+
+.sello-transparencia:hover, .logo-aliado:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* 3. TÍTULOS Y ENCABEZADOS DE IMPACTO */
+.display-4, .display-6 {
+    letter-spacing: -0.02em;
+    font-weight: 700 !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+/* Highlight / Insignias suaves en texto */
+.bg-primary-subtle {
+    background-color: rgba(255, 111, 15, 0.1) !important;
+    color: var(--primary) !important;
+}
+
+/* 4. OPTIMIZACIÓN DE SCROLLBAR (BARRA DE NAVEGACIÓN LATERAL) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* 5. SELECCIÓN DE TEXTO CUSTOMIZADA */
+::selection {
+    background-color: rgba(255, 111, 15, 0.25);
+    color: var(--dark-bg);
+}
