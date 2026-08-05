@@ -1114,3 +1114,54 @@
     background-color: rgba(255, 111, 15, 0.25);
     color: var(--dark-bg);
 }
+
+/* ==========================================================================
+   EFECTO "SELLO FLOTANTE" PARA TARJETAS DE PROYECTOS Y SERVICIOS
+   ========================================================================== */
+
+/* 1. PREPARACIÓN DE LA TARJETA */
+.project-item, 
+.causes-item, 
+.service-item {
+    position: relative !important;
+    overflow: hidden !important; /* Mantiene la marca dentro de la tarjeta */
+}
+
+/* 2. CREACIÓN DEL SELLO TRASERO CON EL LOGO DE FIDES */
+.project-item::after, 
+.causes-item::after, 
+.service-item::after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    right: -25px;
+    width: 180px;
+    height: 180px;
+    background-image: url('../Logos/logo-fides-fundacion-sucre.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.05;                          /* Muy tenue en estado normal */
+    filter: grayscale(100%);                 /* En escala de grises por defecto */
+    transform: rotate(-10deg) scale(0.95);  /* Posición inicial */
+    pointer-events: none;                   /* No interfiere con clics o enlaces */
+    z-index: 0;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Curva suave de animación */
+}
+
+/* 3. ASEGURAR QUE EL TEXTO Y BOTONES QUEDEN POR ENCIMA DEL SELLO */
+.project-item > *, 
+.causes-item > *, 
+.service-item > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* 4. EFECTO AL PASAR EL CURSOR (HOVER): REVELADO Y ELEVACIÓN FLOTANTE */
+.project-item:hover::after, 
+.causes-item:hover::after, 
+.service-item:hover::after {
+    opacity: 0.16;                          /* Aumenta la visibilidad */
+    filter: grayscale(0%);                  /* Recupera sus colores de marca */
+    transform: rotate(8deg) scale(1.15) translateY(-8px); /* Flota y rota sutilmente */
+}
