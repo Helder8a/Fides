@@ -1165,3 +1165,396 @@
     filter: grayscale(0%);                  /* Recupera sus colores de marca */
     transform: rotate(8deg) scale(1.15) translateY(-8px); /* Flota y rota sutilmente */
 }
+
+/* Normalización del Chat de IA */
+#ai-chat-container {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Transición uniforme para tarjetas e imágenes */
+.service-card, .causes-item, .fact-item {
+    will-change: transform;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Ajuste de escala para badges e insignias corporativas */
+.sello-transparencia img {
+    transition: filter 0.3s ease;
+}
+
+.sello-transparencia:hover img {
+    filter: grayscale(0%) !important;
+}
+
+/* ==========================================================================
+   SECCIÓN DE ALIADOS Y SELLOS DE TRANSPARENCIA
+   ========================================================================== */
+
+/* Contenedor y tira de logos */
+.logo-aliado {
+    max-height: 60px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.65;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.logo-aliado:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+/* Sellos de transparencia y certificaciones */
+.sello-transparencia {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.sello-transparencia img {
+    display: block;
+    margin: 0 auto 8px;
+    max-height: 80px;
+    width: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.sello-transparencia:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+.sello-transparencia:hover img {
+    filter: grayscale(0%);
+}
+
+/* Ícono de seguridad (fallback si se usa FontAwesome en lugar de imagen) */
+.sello-transparencia .fa-shield-alt {
+    color: #28a745;
+}
+
+/* ==========================================================================
+   MENÚ MÓVIL OPTIMIZADO (NAVBAR & TOGGLER)
+   ========================================================================== */
+
+/* 1. Contenedor y márgenes de seguridad en el encabezado móvil */
+@media (max-width: 991.98px) {
+    .navbar {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+
+    /* Fondo sólido y sombra para la lista desplegable en móviles */
+    .navbar-collapse {
+        background-color: var(--fides-dark) !important;
+        padding: 20px !important;
+        border-radius: 0 0 var(--fides-radius) var(--fides-radius) !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+        margin-top: 10px;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        padding: 12px 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar .navbar-nav .nav-item:last-child .nav-link {
+        border-bottom: none;
+    }
+}
+
+/* 2. Botón de menú en estado normal (Muestra las 3 líneas por defecto) */
+.navbar-toggler {
+    background-color: var(--primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    margin-right: 5px;
+    box-shadow: 0 4px 15px rgba(255, 111, 15, 0.35) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Icono predeterminado: 3 líneas blancas */
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* 3. Estado ABIERTO (Muestra la X únicamente cuando el menú se despliega) */
+.navbar:has(.navbar-collapse.show) .navbar-toggler,
+.navbar-toggler[aria-expanded="true"] {
+    background-color: var(--primary-hover) !important;
+}
+
+.navbar:has(.navbar-collapse.show) .navbar-toggler .navbar-toggler-icon,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M6 6l18 18M6 24L24 6'/%3e%3c/svg%3e") !important;
+    transform: rotate(90deg);
+}
+
+/* 4. Interacción al presionar */
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: 0 6px 18px rgba(255, 111, 15, 0.5) !important;
+}
+
+.navbar-toggler:active {
+    transform: scale(0.92);
+}
+
+/* ==========================================================================
+   TARJETAS, DECORACIÓN Y SEPARADOR DE INFORMACIÓN
+   ========================================================================== */
+
+/* 1. Barra de acento superior en tarjetas */
+.project-item::before,
+.causes-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--fides-accent) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.project-item:hover::before,
+.causes-item:hover::before {
+    opacity: 1;
+}
+
+/* 2. Etiquetas flotantes sobre imágenes */
+.card-badge-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(11, 25, 44, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 2;
+}
+
+/* 3. Separador elegante de información */
+.info-divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(15, 46, 34, 0.15) 50%, transparent 100%);
+    margin: 20px 0;
+    border: none;
+}
+
+.info-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 111, 15, 0.6);
+}
+
+/* 4. Estilización del Reproductor / Widget de Spotify */
+.spotify-card {
+    background: linear-gradient(145deg, #121212 0%, #1a1a1a 100%) !important;
+    border-radius: var(--fides-radius) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    overflow: hidden;
+}
+
+.spotify-card iframe {
+    border-radius: 12px;
+}
+
+/* 5. Soporte para área segura en dispositivos móviles */
+@supports (padding: max(0px)) {
+    .fixed-top,
+    .whatsapp-float {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+    }
+    
+    .whatsapp-float {
+        bottom: max(30px, env(safe-area-inset-bottom));
+        right: max(30px, env(safe-area-inset-right));
+    }
+}
+
+/* Skeleton Loader animado para contenido en carga */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Banner de Consentimiento de Cookies / Privacidad */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 480px;
+    background: rgba(11, 25, 44, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--fides-radius);
+    padding: 20px;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cookie-banner .btn-accept {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-radius: 30px;
+    border: none;
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.cookie-banner .btn-accept:hover {
+    background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   MEJORAS GENERALES DE INTERFAZ Y EXPERIENCIA DE USUARIO (UX/UI)
+   ========================================================================== */
+
+/* 1. Transición suave al deslizar la página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Resplandor e indicadores en campos de formularios */
+.form-control:focus, 
+.form-select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(255, 111, 15, 0.18) !important;
+    outline: none !important;
+}
+
+/* 3. Elevación y zoom suave en tarjetas de contenido */
+.project-item, 
+.causes-item, 
+.service-item {
+    transition: transform 0.4s var(--easing-apple), box-shadow 0.4s var(--easing-apple) !important;
+    overflow: hidden !important;
+}
+
+.project-item:hover, 
+.causes-item:hover, 
+.service-item:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 18px 36px rgba(11, 25, 44, 0.12) !important;
+}
+
+.project-item img, 
+.causes-item img {
+    transition: transform 0.6s var(--easing-apple) !important;
+}
+
+.project-item:hover img, 
+.causes-item:hover img {
+    transform: scale(1.05) !important;
+}
+
+/* 4. Animación en los enlaces del pie de página */
+.footer .btn.btn-link {
+    transition: transform 0.3s ease, color 0.3s ease !important;
+}
+
+.footer .btn.btn-link:hover {
+    transform: translateX(6px) !important;
+    color: var(--primary) !important;
+}
+
+/* 5. Rendimiento de animaciones por hardware */
+.btn-primary, 
+.navbar-toggler, 
+.project-item, 
+.whatsapp-float {
+    will-change: transform;
+}
+
+/* ==========================================================================
+   OPTIMIZACIONES FINALES DE EXPERIENCIA DE USUARIO Y DETALLES TÁCTILES
+   ========================================================================== */
+
+/* 1. Tooltips y globos de información accesibles */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: var(--fides-dark);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s var(--easing-apple);
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+[data-tooltip]:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 2. Feedback en botones táctiles (Efecto 'Click/Tap' en móviles) */
+.btn:active, 
+.card-badge-overlay:active, 
+.logo-aliado:active {
+    transform: scale(0.96) !important;
+    transition: transform 0.1s ease !important;
+}
+
+/* 3. Deshabilitación de transiciones molestas durante el redimensionado */
+.resize-animation-stopper * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
+/* 4. Optimización de imágenes para carga progresiva */
+img {
+    content-visibility: auto;
+}
