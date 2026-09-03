@@ -517,12 +517,11 @@
     transform: rotate(90deg);
 }
 
-/* --- CORRECCIÓN RESPONSIVE PARA BANNER DE COOKIES EN MÓVILES --- */
+/* --- CORRECCIÓN DEFINITIVA PARA BANNER DE COOKIES EN MÓVILES --- */
 
-/* Contenedor general del banner de cookies */
 .cookie-consent-banner, 
 #cookie-consent, 
-.cc-banner {
+.cookie-banner {
     position: fixed !important;
     bottom: 0 !important;
     left: 0 !important;
@@ -532,66 +531,75 @@
     z-index: 99999 !important;
     background: var(--dark-bg, #001D23) !important;
     color: #ffffff !important;
-    padding: 16px !important;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25) !important;
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 -10px 30px rgba(0, 29, 35, 0.3) !important;
+    border-top: 1px solid var(--fides-glass-border, rgba(255, 255, 255, 0.15)) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* Layout por defecto (Mobile First): Columna */
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
-    box-sizing: border-box !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-top: 1px solid var(--fides-glass-border, rgba(255, 255, 255, 0.15)) !important;
+    align-items: stretch !important;
 }
 
-/* Contenedor interno para textos y botones */
-.cookie-consent-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+/* Texto del banner de cookies */
+.cookie-consent-banner p,
+.cookie-text {
+    margin: 0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-align: left !important;
 }
 
-@media (min-width: 768px) {
-    .cookie-consent-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
+.cookie-consent-banner a {
+    color: var(--primary, #FF6F0F) !important;
+    text-decoration: underline !important;
+    font-weight: 500;
 }
 
-/* Grupo de botones alineados correctamente sin desbordarse */
-.cookie-consent-actions {
-    display: flex;
-    flex-direction: column; /* Apilados en móvil para evitar descuadres */
-    gap: 8px;
-    width: 100%;
-}
-
-@media (min-width: 576px) {
-    .cookie-consent-actions {
-        flex-direction: row; /* En línea en tablets y escritorio */
-        justify-content: flex-end;
-    }
-}
-
-/* Botón de aceptar optimizado para touch targets móviles (WCAG 2.2) */
-.cookie-consent-banner .btn,
+/* Botón de aceptación adaptado a touch targets móviles (WCAG 2.2) */
+.cookie-consent-banner .btn-primary,
 .cookie-accept-btn {
     width: 100% !important;
-    min-height: 44px !important; /* Estándar de accesibilidad táctil */
-    padding: 10px 20px !important;
-    display: inline-flex !important;
+    min-height: 44px !important; /* Estándar mínimo de accesibilidad táctil */
+    display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    padding: 12px 24px !important;
     border-radius: 50px !important;
     font-weight: 600 !important;
     text-align: center !important;
     box-sizing: border-box !important;
+    background: linear-gradient(135deg, var(--primary) 0%, #ff8533 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(255, 111, 15, 0.3) !important;
+    cursor: pointer;
 }
 
-@media (min-width: 576px) {
-    .cookie-consent-banner .btn,
+/* Comportamiento en Tablets y Escritorio (Desktop) */
+@media (min-width: 768px) {
+    .cookie-consent-banner {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 20px 40px !important;
+        gap: 24px !important;
+    }
+    
+    .cookie-consent-banner p,
+    .cookie-text {
+        max-width: 75% !important;
+    }
+    
+    .cookie-consent-banner .btn-primary,
     .cookie-accept-btn {
-        width: auto !important; /* Ancho automático en desktop */
+        width: auto !important;
+        min-width: 160px !important;
+        flex-shrink: 0 !important;
     }
 }
