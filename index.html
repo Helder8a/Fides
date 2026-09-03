@@ -272,23 +272,17 @@
   <!-- Google tag (gtag.js) -->
 
   <body>
-    <div id="cookie-banner">
-      <div class="container d-flex justify-content-between align-items-center">
-        <small
-          >Utilizamos cookies para mejorar su experiencia. Al continuar
-          navegando, acepta nuestra
-          <a href="#" class="text-primary text-decoration-underline"
-            >Política de Privacidad (Ley 1581)</a
-          >.</small
-        >
-        <button
-          class="btn btn-sm btn-primary rounded-pill px-3"
-          onclick="this.parentElement.parentElement.style.display = 'none'"
-        >
-          Aceptar
+    <div class="cookie-consent-banner" id="fides-cookie-banner" role="region" aria-label="Aviso de cookies">
+    <div class="cookie-content-wrapper">
+        <p class="cookie-text">
+            Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra 
+            <a href="/politica-de-privacidad" target="_blank" rel="noopener">Política de Privacidad (Ley 1581)</a>.
+        </p>
+        <button type="button" id="fides-accept-btn" class="btn btn-primary cookie-accept-btn">
+            Aceptar
         </button>
-      </div>
     </div>
+</div>
 
     <div
       id="spinner"
