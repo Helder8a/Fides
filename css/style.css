@@ -1,11 +1,52 @@
-/********** Template CSS **********/
+/*****************************************************************************
+ * ARQUITECTURA CSS OPTIMIZADA - FIDES / PRODUCTO DIGITAL
+ *****************************************************************************/
+
+/* --- 1. DESIGN TOKENS & VARIABLES MAESTRAS --- */
 :root {
     --primary: #FF6F0F;
+    --primary-hover: #e05e08;
     --secondary: #FFF0E6;
     --light: #F8F8F9;
     --dark: #001D23;
+    --dark-bg: #001D23;
+    
+    /* Normalización de variables duplicadas */
+    --fides-primary: var(--primary);
+    --fides-secondary: #ff8c3b;
+    --fides-dark: var(--dark);
+    --fides-accent: #00d2ff;
+    
+    --fides-glass: rgba(255, 255, 255, 0.1);
+    --fides-glass-border: rgba(255, 255, 255, 0.2);
+    --card-shadow: 0 10px 30px -10px rgba(0, 29, 35, 0.08);
+    --card-shadow-hover: 0 20px 45px -10px rgba(0, 29, 35, 0.16);
+    --fides-radius: 16px;
+    
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-apple: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* --- 2. RESET Y SELECTORES GLOBALES --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+::selection {
+    background-color: rgba(255, 111, 15, 0.25);
+    color: var(--dark-bg);
+}
+
+/* --- 3. UTILIDADES Y EFECTOS GENERALES --- */
 .back-to-top {
     position: fixed;
     display: none;
@@ -14,450 +55,6 @@
     z-index: 99;
 }
 
-
-/*** Spinner ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
-}
-
-#spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
-}
-
-
-/*** Button ***/
-.btn {
-    font-weight: 500;
-    transition: .5s;
-}
-
-.btn.btn-primary,
-.btn.btn-outline-primary:hover {
-    color: #FFFFFF;
-}
-
-.btn.btn-primary:hover {
-    color: var(--primary);
-    background: transparent;
-}
-
-.btn-square {
-    width: 38px;
-    height: 38px;
-}
-
-.btn-sm-square {
-    width: 32px;
-    height: 32px;
-}
-
-.btn-lg-square {
-    width: 48px;
-    height: 48px;
-}
-
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
-}
-
-
-/*** Navbar ***/
-.fixed-top {
-    transition: .5s;
-}
-
-.top-bar {
-    height: 45px;
-    border-bottom: 1px solid rgba(255, 255, 255, .07);
-}
-
-.navbar .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
-}
-
-.navbar .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 25px 0;
-    color: #FFFFFF;
-    font-weight: 500;
-    outline: none;
-}
-
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
-}
-
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav {
-        margin-top: 10px;
-        border-top: 1px solid rgba(0, 0, 0, .07);
-        background: var(--dark);
-    }
-
-    .navbar .navbar-nav .nav-link {
-        padding: 10px 0;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        visibility: hidden;
-        top: 100%;
-        transform: rotateX(-75deg);
-        transform-origin: 0% 0%;
-        transition: .5s;
-        opacity: 0;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        transform: rotateX(0deg);
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
-}
-
-
-/*** Header ***/
-.carousel-caption {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: rgba(0, 29, 35, .4);
-    z-index: 1;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 15%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    width: 3rem;
-    height: 3rem;
-    background-color: var(--dark);
-    border: 12px solid var(--dark);
-    border-radius: 3rem;
-}
-
-@media (max-width: 768px) {
-    #header-carousel .carousel-item {
-        position: relative;
-        min-height: 450px;
-    }
-    
-    #header-carousel .carousel-item img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-}
-
-.page-header {
-    padding-top: 12rem;
-    padding-bottom: 6rem;
-    background: linear-gradient(rgba(0, 29, 35, .8), rgba(0, 29, 35, .8)), url(../img/carousel-1.jpg) center center no-repeat;
-    background-size: cover;
-}
-
-.page-header .breadcrumb-item+.breadcrumb-item::before {
-    color: #999999;
-}
-
-
-/*** Causes ***/
-.causes-item .progress {
-    height: 5px;
-    border-radius: 0;
-    overflow: visible;
-}
-
-.causes-item .progress .progress-bar {
-    position: relative;
-    overflow: visible;
-    width: 0px;
-    border-radius: 0;
-    transition: 5s;
-}
-
-.causes-item .progress .progress-bar span {
-    position: absolute;
-    top: -7px;
-    right: 0;
-    width: 40px;
-    height: 19px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    background: var(--primary);
-    color: #FFFFFF;
-}
-
-.causes-item .causes-overlay {
-    position: absolute;
-    width: 100%;
-    height: 0;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, .5);
-    overflow: hidden;
-    opacity: 0;
-    transition: .5s;
-}
-
-.causes-item:hover .causes-overlay {
-    height: 100%;
-    opacity: 1;
-}
-
-
-/*** Service ***/
-.service-item {
-    box-shadow: 0 0 45px rgba(0, 0, 0, .06);
-}
-
-
-/*** Donate ***/
-.donate {
-    background: rgba(0, 29, 35, .8);
-}
-
-.btn-group .btn-light:hover,
-.btn-group input[type="radio"]:checked+label {
-    color: var(--primary);
-    border-color: var(--primary);
-}
-
-
-/*** Team ***/
-.team-item img {
-    position: relative;
-    top: 0;
-    transition: .5s;
-}
-
-.team-item:hover img {
-    top: -30px;
-}
-
-.team-item .team-text {
-    position: relative;
-    height: 100px;
-    transition: .5s;
-}
-
-.team-item:hover .team-text {
-    margin-top: -60px;
-    height: 160px;
-}
-
-.team-item .team-text .team-social {
-    opacity: 0;
-    transition: .5s;
-}
-
-.team-item:hover .team-text .team-social {
-    opacity: 1;
-}
-
-.team-item .team-social .btn {
-    display: inline-flex;
-    color: var(--primary);
-    background: #FFFFFF;
-    border-radius: 40px;
-}
-
-.team-item .team-social .btn:hover {
-    color: #FFFFFF;
-    background: var(--primary);
-}
-
-
-/*** Testimonial ***/
-.testimonial-carousel::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    z-index: 1;
-}
-
-.testimonial-carousel::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    z-index: 1;
-}
-
-@media (min-width: 768px) {
-    .testimonial-carousel::before,
-    .testimonial-carousel::after {
-        width: 200px;
-    }
-}
-
-@media (min-width: 992px) {
-    .testimonial-carousel::before,
-    .testimonial-carousel::after {
-        width: 300px;
-    }
-}
-
-.testimonial-carousel .owl-item .testimonial-text {
-    background: var(--light);
-    transform: scale(.8);
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-text {
-    background: var(--primary);
-    transform: scale(1);
-}
-
-.testimonial-carousel .owl-item .testimonial-text *,
-.testimonial-carousel .owl-item .testimonial-item img {
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-text * {
-    color: var(--light) !important;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item img {
-    background: var(--primary) !important;
-} 
-
-.testimonial-carousel .owl-nav {
-    position: absolute;
-    width: 350px;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
-    opacity: 0;
-    transition: .5s;
-    z-index: 1;
-}
-
-.testimonial-carousel:hover .owl-nav {
-    width: 300px;
-    opacity: 1;
-}
-
-.testimonial-carousel .owl-nav .owl-prev,
-.testimonial-carousel .owl-nav .owl-next {
-    position: relative;
-    color: var(--primary);
-    font-size: 45px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-nav .owl-prev:hover,
-.testimonial-carousel .owl-nav .owl-next:hover {
-    color: var(--dark);
-}
-
-
-/*** Footer ***/
-
-.footer .btn.btn-link {
-    display: block;
-    margin-bottom: 5px;
-    padding: 0;
-    text-align: left;
-    color: rgba(255,255,255,0.5);
-    font-weight: normal;
-    text-transform: capitalize;
-    transition: .3s;
-}
-
-.footer .btn.btn-link::before {
-    position: relative;
-    content: "\f105";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    color: rgba(255,255,255,0.5);
-    margin-right: 10px;
-}
-
-.footer .btn.btn-link:hover {
-    color: var(--light);
-    letter-spacing: 1px;
-    box-shadow: none;
-}
-
-.footer .btn.btn-square {
-    color: rgba(255,255,255,0.5);
-    border: 1px solid rgba(255,255,255,0.5);
-}
-
-.footer .btn.btn-square:hover {
-    color: var(--secondary);
-    border-color: var(--light);
-}
-
-.footer .copyright {
-    padding: 25px 0;
-    font-size: 15px;
-    border-top: 1px solid rgba(256, 256, 256, .1);
-}
-
-.footer .copyright a {
-    color: var(--secondary);
-}
-
-.footer .copyright a:hover {
-    color: var(--primary);
-}
-
-/* --- VARIABLES MAESTRAS --- */
-:root {
-    --fides-primary: #007bff;
-    --fides-secondary: #00d2ff;
-    --fides-dark: #001D23;
-    --fides-glass: rgba(255, 255, 255, 0.1);
-    --fides-glass-border: rgba(255, 255, 255, 0.2);
-    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* --- EFECTO REVEAL AL HACER SCROLL --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -468,21 +65,59 @@
     transform: translateY(0);
 }
 
-/* --- BOTONES PREMIUM CON EFECTO DE LUZ --- */
-.btn-premium {
+/* --- 4. SPINNER --- */
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- 5. SISTEMA DE BOTONES --- */
+.btn {
+    font-weight: 500;
+    transition: .5s;
+}
+.btn.btn-primary,
+.btn.btn-outline-primary:hover {
+    color: #FFFFFF;
+}
+.btn.btn-primary:hover {
+    color: var(--primary);
+    background: transparent;
+}
+.btn-square, .btn-sm-square, .btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50% !important;
+}
+.btn-square { width: 38px; height: 38px; }
+.btn-sm-square { width: 35px; height: 35px; }
+.btn-lg-square { width: 48px; height: 48px; }
+
+.btn-premium, .btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, #ff8533 100%) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 20px rgba(255, 111, 15, 0.28) !important;
+    transition: all 0.4s var(--easing-apple) !important;
+    color: white !important;
+    padding: 12px 35px;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    border-radius: 50px;
-    padding: 12px 35px;
-    font-weight: 600;
-    transition: var(--transition-smooth);
-    background: linear-gradient(45deg, var(--fides-primary), var(--fides-secondary));
-    border: none;
-    color: white !important;
 }
-
-.btn-premium::before {
+.btn-premium::before, .btn-primary::before {
     content: '';
     position: absolute;
     top: 0;
@@ -492,288 +127,16 @@
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
     transition: 0.6s;
 }
-
-.btn-premium:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
+.btn-premium:hover, .btn-primary:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 12px 28px rgba(255, 111, 15, 0.4) !important;
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
+    color: #ffffff !important;
 }
-
 .btn-premium:hover::before {
     left: 100%;
 }
 
-/* --- TARJETAS DE IMPACTO (GLASSMORPHISM) --- */
-.fact-item {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: var(--transition-smooth);
-    position: relative;
-}
-
-.fact-item:hover {
-    transform: translateY(-15px) rotate(2deg);
-    background: var(--fides-primary);
-    color: white !important;
-}
-
-.fact-item:hover i, .fact-item:hover h2 {
-    color: white !important;
-}
-
-/* --- CARRUSEL DE TESTIMONIOS (EXPERTO UX) --- */
-.testimonial-carousel .testimonial-item {
-    padding: 30px;
-    border-radius: 25px;
-    transition: var(--transition-smooth);
-    transform: scale(0.9);
-    filter: blur(2px);
-    opacity: 0.6;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item {
-    transform: scale(1.05);
-    filter: blur(0);
-    opacity: 1;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-.testimonial-carousel .owl-dot {
-    height: 10px;
-    width: 10px;
-    background: #ccc !important;
-    margin: 5px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    width: 30px;
-    background: var(--fides-primary) !important;
-}
-
-/* ================================================================
-   EFECTO GLASSMORPHISM Y HOVER PREMIUM (TARJETAS DE PROYECTOS)
-   ================================================================ */
-
-/* Estilo base de la tarjeta */
-.project-item {
-    background: rgba(255, 255, 255, 0.7); /* Transparencia blanca */
-    backdrop-filter: blur(12px); /* El "vidrio" esmerilado */
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil como reflejo */
-    border-radius: 20px; /* Esquinas redondeadas modernas */
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transición fluida estilo Apple */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra base suave */
-}
-
-/* Contenedor de la imagen para que no pierda el estilo */
-.project-item img {
-    transition: transform 0.8s ease;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* --- EFECTO HOVER (AL PASAR EL MOUSE) --- */
-.project-item:hover {
-    transform: translateY(-15px) scale(1.02); /* Se eleva y crece un poco */
-    background: rgba(255, 255, 255, 0.9); /* Se vuelve un poco más sólido */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /* Sombra más profunda para dar altura */
-    border: 1px solid var(--primary); /* El borde cambia al color de FIDES */
-}
-
-/* Efecto de zoom en la imagen interna */
-.project-item:hover img {
-    transform: scale(1.1);
-}
-
-/* Estilo del texto dentro de la tarjeta glass */
-.project-item .p-4 {
-    position: relative;
-    z-index: 1;
-}
-
-/* Opcional: Pequeño destello de luz al pasar el mouse */
-.project-item::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: skewX(-25deg);
-    transition: 0.7s;
-}
-
-.project-item:hover::after {
-    left: 150%;
-}
-
-/* Contenedor Premium de Contadores */
-.fact-item {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 3rem 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.fact-item::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.fact-item:hover {
-    transform: translateY(-12px) scale(1.03);
-    border-color: var(--fides-primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.fact-item:hover::before {
-    opacity: 1;
-}
-
-/* Animación de los números */
-.fact-item h2 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: linear-gradient(45deg, var(--fides-primary), var(--fides-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-/* Símbolo "+" animado */
-.counter-plus {
-    font-size: 2rem;
-    vertical-align: top;
-    color: var(--fides-primary);
-    margin-left: 2px;
-}
-
-/* Estilos Espectaculares para Contadores */
-.fact-item-premium {
-    background: #ffffff;
-    border-radius: 25px;
-    padding: 40px 30px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 123, 255, 0.1);
-}
-
-.fact-item-premium:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 25px 50px rgba(0, 123, 255, 0.15);
-    background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
-}
-
-.fact-icon {
-    margin-bottom: 20px;
-    color: var(--fides-primary);
-    transition: 0.5s;
-}
-
-.fact-item-premium:hover .fact-icon {
-    transform: scale(1.2) rotate(10deg);
-}
-
-.counter-value {
-    display: inline-block;
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1;
-    background: linear-gradient(45deg, #002d5b, #007bff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
-}
-
-.counter-suffix {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #007bff;
-    vertical-align: top;
-}
-
-.fact-item-premium p {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #555;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0;
-}
-
-/* Efecto decorativo de fondo */
-.fact-item-premium::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    background: rgba(0, 123, 255, 0.05);
-    border-radius: 50%;
-    z-index: 0;
-}
-
-/* Efecto de iluminación en los números */
-[data-toggle="counter-up"] {
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.fact-item:hover [data-toggle="counter-up"] {
-    transform: scale(1.1);
-    text-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
-}
-
-/* Estilo para los iconos en hover */
-.fact-item i {
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.fact-item:hover i {
-    transform: translateY(-10px) rotate(360deg);
-    color: #00d2ff !important; /* Cambia a un azul más claro al girar */
-}
-
-/* Tarjeta de Spotify con resplandor */
-.spotify-card {
-    background: #191414; /* Color oscuro oficial de Spotify */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(30, 215, 96, 0.1);
-}
-
-.spotify-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(30, 215, 96, 0.2); /* Resplandor verde */
-    border-color: rgba(30, 215, 96, 0.5);
-}
-
-/* Botón personalizado de Spotify */
 .btn-spotify {
     display: inline-block;
     padding: 12px 30px;
@@ -785,7 +148,6 @@
     transition: 0.3s;
     border: none;
 }
-
 .btn-spotify:hover {
     background-color: #1ed760;
     color: white;
@@ -793,129 +155,39 @@
     transform: scale(1.05);
 }
 
-/* Iconos pequeños */
-.btn-sm-square {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Estilo para el contenedor del Chatbot de IA */
-#ia-chat-container {
-    border: 1px solid var(--primary);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* Etiqueta de "Powered by AI" minimalista */
-.ai-badge {
-    font-size: 10px;
-    background: var(--dark);
+.btn-group .btn-light:hover,
+.btn-group input[type="radio"]:checked+label {
     color: var(--primary);
-    padding: 2px 8px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-left: 10px;
+    border-color: var(--primary);
 }
 
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px; /* Lo ponemos a la derecha para no tapar otros elementos */
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 9999; /* Z-index muy alto para que siempre esté al frente */
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    background-color: #128c7e;
-    color: white;
-    transform: scale(1.1);
-}
-
-/* --- ESTILO DE CINTA DE ALIADOS --- */
-.logo-aliado {
-    max-height: 60px; /* Ajusta esto según el tamaño de tus logos */
-    width: auto;
-    filter: grayscale(100%); /* Efecto sobrio inicial */
-    opacity: 0.6;
-    transition: all 0.4s ease;
-    cursor: pointer;
-}
-
-.logo-aliado:hover {
-    filter: grayscale(0%); /* El logo recupera su color original */
-    opacity: 1;
-    transform: scale(1.1); /* Ligero aumento de tamaño */
-}
-
-.sello-transparencia {
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.sello-transparencia img {
-    display: block;
-    margin: 0 auto 5px;
-}
-
-.sello-transparencia:hover {
-    opacity: 1;
-    transform: translateY(-3px);
-}
-
-/* Color verde para el sello de seguridad si no usas imagen */
-.fa-shield-alt {
-    color: #28a745 !important;
-}
-
-/* ==========================================================================
-   REFINAMIENTO DE DISEÑO Y MICRO-INTERACCIONES (OVERRIDE PROFESIONAL)
-   ========================================================================== */
-
-/* 1. UNIFICACIÓN DE PALETA E IDENTIDAD VISUAL */
-:root {
-    --primary: #FF6F0F;             /* Naranja Institucional */
-    --primary-hover: #e05e08;
-    --dark-bg: #001D23;             /* Azul/Verde Oscuro Profundo */
-    --fides-primary: #FF6F0F;       /* Normalización de variable duplicada */
-    --fides-secondary: #ff8c3b;
-    --fides-dark: #001D23;
-    --card-shadow: 0 10px 30px -10px rgba(0, 29, 35, 0.08);
-    --card-shadow-hover: 0 20px 45px -10px rgba(0, 29, 35, 0.16);
-    --fides-radius: 16px;
-    --easing-apple: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* 2. MEJORA DE NAVEGACIÓN (NAVBAR GLASSMORPHISM REAL) */
+/* --- 6. NAVBAR Y NAVEGACIÓN --- */
 .fixed-top {
+    transition: .5s;
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
 }
-
+.top-bar {
+    height: 45px;
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+}
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
 .navbar .navbar-nav .nav-link {
+    margin-right: 30px;
+    padding: 25px 0;
+    color: #FFFFFF;
     font-weight: 500;
-    letter-spacing: 0.2px;
+    outline: none;
     position: relative;
     transition: color 0.3s var(--easing-apple);
 }
-
-/* Indicador deslizante sutil bajo los enlaces del menú */
 .navbar .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
@@ -928,209 +200,67 @@
     transform: translateX(-50%);
     border-radius: 2px;
 }
-
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
 .navbar .navbar-nav .nav-link:hover::after,
 .navbar .navbar-nav .nav-link.active::after {
     width: 50%;
 }
 
-/* 3. PERFECCIONAMIENTO DE BOTONES Y CALL TO ACTION (CTA) */
-.btn-primary, .btn-premium {
-    background: linear-gradient(135deg, var(--primary) 0%, #ff8533 100%) !important;
-    border: none !important;
-    border-radius: 50px !important;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    box-shadow: 0 6px 20px rgba(255, 111, 15, 0.28) !important;
-    transition: all 0.4s var(--easing-apple) !important;
+/* --- 7. HEADER & CAROUSEL --- */
+.carousel-caption {
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: rgba(0, 29, 35, .4);
+    z-index: 1;
 }
-
-.btn-primary:hover, .btn-premium:hover {
-    transform: translateY(-3px) scale(1.02) !important;
-    box-shadow: 0 12px 28px rgba(255, 111, 15, 0.4) !important;
-    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
-    color: #ffffff !important;
+.carousel-control-prev, .carousel-control-next { width: 15%; }
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 3rem; height: 3rem;
+    background-color: var(--dark);
+    border: 12px solid var(--dark);
+    border-radius: 3rem;
 }
-
-/* Destello metálico al pasar sobre botones premium */
-.btn-premium::before {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent) !important;
+.page-header {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    background: linear-gradient(rgba(0, 29, 35, .8), rgba(0, 29, 35, .8)), url(../img/carousel-1.jpg) center center no-repeat;
+    background-size: cover;
 }
+.page-header .breadcrumb-item+.breadcrumb-item::before { color: #999999; }
 
-/* 4. REDISEÑO ELEGANTE DE TARJETAS (PROJECTS, SERVICES & CAUSES) */
-.project-item, .service-item, .causes-item {
-    border-radius: var(--fides-radius) !important;
-    border: 1px solid rgba(0, 29, 35, 0.06) !important;
-    background: #ffffff !important;
-    box-shadow: var(--card-shadow) !important;
-    transition: all 0.4s var(--easing-apple) !important;
-}
-
-.project-item:hover, .service-item:hover, .causes-item:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: var(--card-shadow-hover) !important;
-    border-color: rgba(255, 111, 15, 0.3) !important;
-}
-
-/* Zoom progresivo y suave a imágenes dentro de tarjetas */
-.project-item img, .causes-item img, .team-item img {
-    transition: transform 0.7s var(--easing-apple) !important;
-}
-
-.project-item:hover img, .causes-item:hover img {
-    transform: scale(1.06) !important;
-}
-
-/* 5. TARJETAS DE CONTADORES E IMPACTO (FACTS) */
-.fact-item, .fact-item-premium {
-    background: #ffffff !important;
+/* --- 8. TARJETAS, CAUSES & PROYECTOS (CON SELLO FLOTANTE Y GLASSMORPHISM) --- */
+.project-item, .service-item, .causes-item, .fact-item, .fact-item-premium {
     border-radius: var(--fides-radius) !important;
     border: 1px solid rgba(0, 29, 35, 0.08) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     box-shadow: var(--card-shadow) !important;
     transition: all 0.4s var(--easing-apple) !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-.fact-item:hover, .fact-item-premium:hover {
-    transform: translateY(-8px) !important;
-    background: #ffffff !important;
+.project-item:hover, .service-item:hover, .causes-item:hover, .fact-item:hover, .fact-item-premium:hover {
+    transform: translateY(-12px) scale(1.02) !important;
     box-shadow: var(--card-shadow-hover) !important;
     border-color: var(--primary) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
 }
 
-.counter-value, .fact-item h2 {
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary) 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+.project-item img, .causes-item img, .team-item img, .service-item img {
+    transition: transform 0.7s var(--easing-apple) !important;
+}
+.project-item:hover img, .causes-item:hover img {
+    transform: scale(1.08) !important;
 }
 
-/* 6. CHATBOT Y BOTÓN DE WHATSAPP CON FEEDBACK FLUIDO */
-.whatsapp-float {
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35) !important;
-    transition: all 0.4s var(--easing-apple) !important;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.12) translateY(-3px) !important;
-    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.5) !important;
-}
-
-#ai-chat-container > div {
-    border-radius: 20px !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
-    box-shadow: 0 15px 35px rgba(0, 29, 35, 0.15) !important;
-}
-
-/* 7. REFINAMIENTO DEL FOOTER */
-.footer {
-    background: linear-gradient(180deg, #00151a 0%, #000c0f 100%) !important;
-}
-
-.footer .btn.btn-square {
-    border-radius: 50% !important;
-    transition: all 0.3s var(--easing-apple) !important;
-}
-
-.footer .btn.btn-square:hover {
-    background: var(--primary) !important;
-    border-color: var(--primary) !important;
-    color: #ffffff !important;
-    transform: translateY(-3px);
-}
-
-/* ==========================================================================
-   MEJORAS COMPLEMENTARIAS DE UX, FORMULARIOS Y TIPOGRAFÍA (ONLY CSS)
-   ========================================================================== */
-
-/* 1. MEJORA EN CAMPOS DE FORMULARIO (INPUTS Y SELECTS) */
-.form-control, .form-select {
-    border-radius: 12px !important;
-    border: 1px solid rgba(0, 29, 35, 0.15) !important;
-    padding: 12px 16px !important;
-    transition: all 0.3s var(--easing-apple) !important;
-    background-color: #ffffff !important;
-}
-
-.form-control:focus, .form-select:focus {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 4px rgba(255, 111, 15, 0.15) !important;
-    outline: none !important;
-}
-
-/* Label flotante estilizado */
-.form-floating label {
-    color: #6c757d;
-    padding-left: 16px;
-}
-
-/* 2. LOGOS DE ALIADOS Y SELLOS DE TRANSPARENCIA */
-.sello-transparencia, .logo-aliado {
-    filter: grayscale(100%);
-    opacity: 0.65;
-    transition: all 0.4s var(--easing-apple) !important;
-}
-
-.sello-transparencia:hover, .logo-aliado:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: translateY(-4px) scale(1.05);
-}
-
-/* 3. TÍTULOS Y ENCABEZADOS DE IMPACTO */
-.display-4, .display-6 {
-    letter-spacing: -0.02em;
-    font-weight: 700 !important;
-}
-
-.text-primary {
-    color: var(--primary) !important;
-}
-
-/* Highlight / Insignias suaves en texto */
-.bg-primary-subtle {
-    background-color: rgba(255, 111, 15, 0.1) !important;
-    color: var(--primary) !important;
-}
-
-/* 4. OPTIMIZACIÓN DE SCROLLBAR (BARRA DE NAVEGACIÓN LATERAL) */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary);
-}
-
-/* 5. SELECCIÓN DE TEXTO CUSTOMIZADA */
-::selection {
-    background-color: rgba(255, 111, 15, 0.25);
-    color: var(--dark-bg);
-}
-
-/* ==========================================================================
-   EFECTO "SELLO FLOTANTE" PARA TARJETAS DE PROYECTOS Y SERVICIOS
-   ========================================================================== */
-
-/* 1. PREPARACIÓN DE LA TARJETA */
-.project-item, 
-.causes-item, 
-.service-item {
-    position: relative !important;
-    overflow: hidden !important; /* Mantiene la marca dentro de la tarjeta */
-}
-
-/* 2. CREACIÓN DEL SELLO TRASERO CON EL LOGO DE FIDES */
-.project-item::after, 
-.causes-item::after, 
-.service-item::after {
+/* Sello de Marca Flotante en Tarjetas */
+.project-item::after, .causes-item::after, .service-item::after {
     content: "";
     position: absolute;
     bottom: -25px;
@@ -1141,458 +271,248 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.05;                          /* Muy tenue en estado normal */
-    filter: grayscale(100%);                 /* En escala de grises por defecto */
-    transform: rotate(-10deg) scale(0.95);  /* Posición inicial */
-    pointer-events: none;                   /* No interfiere con clics o enlaces */
+    opacity: 0.05;
+    filter: grayscale(100%);
+    transform: rotate(-10deg) scale(0.95);
+    pointer-events: none;
     z-index: 0;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Curva suave de animación */
+    transition: all 0.6s var(--easing-apple) !important;
 }
-
-/* 3. ASEGURAR QUE EL TEXTO Y BOTONES QUEDEN POR ENCIMA DEL SELLO */
-.project-item > *, 
-.causes-item > *, 
-.service-item > * {
+.project-item > *, .causes-item > *, .service-item > * {
     position: relative;
     z-index: 1;
 }
-
-/* 4. EFECTO AL PASAR EL CURSOR (HOVER): REVELADO Y ELEVACIÓN FLOTANTE */
-.project-item:hover::after, 
-.causes-item:hover::after, 
-.service-item:hover::after {
-    opacity: 0.16;                          /* Aumenta la visibilidad */
-    filter: grayscale(0%);                  /* Recupera sus colores de marca */
-    transform: rotate(8deg) scale(1.15) translateY(-8px); /* Flota y rota sutilmente */
+.project-item:hover::after, .causes-item:hover::after, .service-item:hover::after {
+    opacity: 0.16;
+    filter: grayscale(0%);
+    transform: rotate(8deg) scale(1.15) translateY(-8px);
 }
 
-/* Normalización del Chat de IA */
+/* Causes Progress Bar */
+.causes-item .progress { height: 5px; border-radius: 0; overflow: visible; }
+.causes-item .progress .progress-bar { position: relative; overflow: visible; width: 0px; border-radius: 0; transition: 5s; }
+.causes-item .progress .progress-bar span {
+    position: absolute; top: -7px; right: 0; width: 40px; height: 19px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; background: var(--primary); color: #FFFFFF;
+}
+
+/* --- 9. FACT / CONTADORES --- */
+.fact-item h2, .counter-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+.counter-plus, .counter-suffix {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    vertical-align: top;
+}
+.fact-icon {
+    margin-bottom: 20px;
+    color: var(--primary);
+    transition: 0.5s;
+}
+.fact-item-premium:hover .fact-icon, .fact-item:hover i {
+    transform: translateY(-10px) rotate(360deg);
+    color: var(--fides-accent) !important;
+}
+
+/* --- 10. TEAM --- */
+.team-item img { position: relative; top: 0; transition: .5s; }
+.team-item:hover img { top: -30px; }
+.team-item .team-text { position: relative; height: 100px; transition: .5s; }
+.team-item:hover .team-text { margin-top: -60px; height: 160px; }
+.team-item .team-text .team-social { opacity: 0; transition: .5s; }
+.team-item:hover .team-text .team-social { opacity: 1; }
+.team-item .team-social .btn { display: inline-flex; color: var(--primary); background: #FFFFFF; border-radius: 40px; }
+.team-item .team-social .btn:hover { color: #FFFFFF; background: var(--primary); }
+
+/* --- 11. TESTIMONIAL CAROUSEL --- */
+.testimonial-carousel::before, .testimonial-carousel::after {
+    position: absolute; content: ""; top: 0; height: 100%; width: 0;
+    z-index: 1;
+}
+.testimonial-carousel::before { left: 0; background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); }
+.testimonial-carousel::after { right: 0; background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); }
+
+.testimonial-carousel .owl-item .testimonial-text {
+    background: var(--light); transform: scale(.8); transition: .5s;
+}
+.testimonial-carousel .owl-item.center .testimonial-text {
+    background: var(--primary); transform: scale(1);
+}
+.testimonial-carousel .owl-item.center .testimonial-text * { color: var(--light) !important; }
+.testimonial-carousel .owl-item.center .testimonial-item img { background: var(--primary) !important; }
+
+.testimonial-carousel .owl-nav {
+    position: absolute; width: 350px; top: 15px; left: 50%;
+    transform: translateX(-50%); display: flex; justify-content: space-between;
+    opacity: 0; transition: .5s; z-index: 1;
+}
+.testimonial-carousel:hover .owl-nav { width: 300px; opacity: 1; }
+.testimonial-carousel .owl-nav .owl-prev, .testimonial-carousel .owl-nav .owl-next {
+    position: relative; color: var(--primary); font-size: 45px; transition: .5s;
+}
+.testimonial-carousel .owl-nav .owl-prev:hover, .testimonial-carousel .owl-nav .owl-next:hover { color: var(--dark); }
+
+.testimonial-carousel .owl-dot {
+    height: 10px; width: 10px; background: #ccc !important;
+    margin: 5px; border-radius: 10px; transition: 0.3s;
+}
+.testimonial-carousel .owl-dot.active { width: 30px; background: var(--fides-primary) !important; }
+
+/* --- 12. SPOTIFY & WIDGETS --- */
+.spotify-card {
+    background: #191414;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(30, 215, 96, 0.1);
+}
+.spotify-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(30, 215, 96, 0.2);
+    border-color: rgba(30, 215, 96, 0.5);
+}
+
+.whatsapp-float {
+    position: fixed; bottom: 30px; right: 30px;
+    background-color: #25d366; color: #FFF;
+    border-radius: 50px; text-align: center; font-size: 30px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35) !important;
+    z-index: 9999; width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: all 0.4s var(--easing-apple) !important;
+}
+.whatsapp-float:hover {
+    background-color: #128c7e; color: white;
+    transform: scale(1.12) translateY(-3px) !important;
+    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.5) !important;
+}
+
 #ai-chat-container {
+    border: 1px solid var(--primary);
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 29, 35, 0.15);
     transition: all 0.3s ease-in-out;
 }
-
-/* Transición uniforme para tarjetas e imágenes */
-.service-card, .causes-item, .fact-item {
-    will-change: transform;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+.ai-badge {
+    font-size: 10px; background: var(--dark); color: var(--primary);
+    padding: 2px 8px; border-radius: 10px; text-transform: uppercase;
+    font-weight: bold; margin-left: 10px;
 }
 
-/* Ajuste de escala para badges e insignias corporativas */
-.sello-transparencia img {
-    transition: filter 0.3s ease;
-}
-
-.sello-transparencia:hover img {
-    filter: grayscale(0%) !important;
-}
-
-/* ==========================================================================
-   SECCIÓN DE ALIADOS Y SELLOS DE TRANSPARENCIA
-   ========================================================================== */
-
-/* Contenedor y tira de logos */
+/* --- 13. ALIADOS & SELLOS --- */
 .logo-aliado {
-    max-height: 60px;
-    width: auto;
-    filter: grayscale(100%);
-    opacity: 0.65;
-    transition: all 0.4s ease;
-    cursor: pointer;
+    max-height: 60px; width: auto; filter: grayscale(100%);
+    opacity: 0.65; transition: all 0.4s var(--easing-apple); cursor: pointer;
 }
+.logo-aliado:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.08); }
 
-.logo-aliado:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.08);
-}
-
-/* Sellos de transparencia y certificaciones */
 .sello-transparencia {
-    opacity: 0.7;
-    transition: all 0.3s ease;
-    text-align: center;
+    opacity: 0.7; transition: all 0.3s ease; text-align: center;
 }
-
 .sello-transparencia img {
-    display: block;
-    margin: 0 auto 8px;
-    max-height: 80px;
-    width: auto;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease, transform 0.3s ease;
+    display: block; margin: 0 auto 8px; max-height: 80px; width: auto;
+    filter: grayscale(100%); transition: filter 0.3s ease, transform 0.3s ease;
+}
+.sello-transparencia:hover { opacity: 1; transform: translateY(-3px); }
+.sello-transparencia:hover img { filter: grayscale(0%); }
+.fa-shield-alt { color: #28a745 !important; }
+
+/* --- 14. FORMULARIOS --- */
+.form-control, .form-select {
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 29, 35, 0.15) !important;
+    padding: 12px 16px !important;
+    transition: all 0.3s var(--easing-apple) !important;
+    background-color: #ffffff !important;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(255, 111, 15, 0.15) !important;
+    outline: none !important;
+}
+.form-floating label { color: #6c757d; padding-left: 16px; }
+
+/* --- 15. FOOTER --- */
+.footer { background: linear-gradient(180deg, #00151a 0%, #000c0f 100%) !important; }
+.footer .btn.btn-link {
+    display: block; margin-bottom: 5px; padding: 0; text-align: left;
+    color: rgba(255,255,255,0.5); font-weight: normal; text-transform: capitalize; transition: .3s;
+}
+.footer .btn.btn-link::before {
+    position: relative; content: "\f105"; font-family: "Font Awesome 5 Free";
+    font-weight: 900; color: rgba(255,255,255,0.5); margin-right: 10px;
+}
+.footer .btn.btn-link:hover { color: var(--light); letter-spacing: 1px; box-shadow: none; }
+.footer .btn.btn-square { color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.5); }
+.footer .btn.btn-square:hover {
+    background: var(--primary) !important; border-color: var(--primary) !important;
+    color: #ffffff !important; transform: translateY(-3px);
+}
+.footer .copyright {
+    padding: 25px 0; font-size: 15px; border-top: 1px solid rgba(256, 256, 256, .1);
+}
+.footer .copyright a { color: var(--secondary); }
+.footer .copyright a:hover { color: var(--primary); }
+
+/* --- 16. MEDIA QUERIES & RESPONSIVE --- */
+@media (max-width: 768px) {
+    #header-carousel .carousel-item { position: relative; min-height: 450px; }
+    #header-carousel .carousel-item img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+    .testimonial-carousel::before, .testimonial-carousel::after { width: 0; }
 }
 
-.sello-transparencia:hover {
-    opacity: 1;
-    transform: translateY(-3px);
+@media (min-width: 768px) {
+    .testimonial-carousel::before, .testimonial-carousel::after { width: 200px; }
 }
 
-.sello-transparencia:hover img {
-    filter: grayscale(0%);
+@media (min-width: 992px) {
+    .testimonial-carousel::before, .testimonial-carousel::after { width: 300px; }
+    .navbar .nav-item .dropdown-menu {
+        display: block; visibility: hidden; top: 100%;
+        transform: rotateX(-75deg); transform-origin: 0% 0%; transition: .5s; opacity: 0;
+    }
+    .navbar .nav-item:hover .dropdown-menu {
+        transform: rotateX(0deg); visibility: visible; transition: .5s; opacity: 1;
+    }
 }
 
-/* Ícono de seguridad (fallback si se usa FontAwesome en lugar de imagen) */
-.sello-transparencia .fa-shield-alt {
-    color: #28a745;
-}
-
-/* ==========================================================================
-   MENÚ MÓVIL OPTIMIZADO (NAVBAR & TOGGLER)
-   ========================================================================== */
-
-/* 1. Contenedor y márgenes de seguridad en el encabezado móvil */
 @media (max-width: 991.98px) {
-    .navbar {
-        padding-right: 15px !important;
-        padding-left: 15px !important;
-    }
-
-    /* Fondo sólido y sombra para la lista desplegable en móviles */
+    .navbar { padding-right: 15px !important; padding-left: 15px !important; }
     .navbar-collapse {
-        background-color: var(--fides-dark) !important;
-        padding: 20px !important;
+        background-color: var(--fides-dark) !important; padding: 20px !important;
         border-radius: 0 0 var(--fides-radius) var(--fides-radius) !important;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
-        margin-top: 10px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important; margin-top: 10px;
     }
-
-    .navbar .navbar-nav .nav-link {
-        padding: 12px 0 !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .navbar .navbar-nav .nav-item:last-child .nav-link {
-        border-bottom: none;
-    }
+    .navbar .navbar-nav { margin-top: 10px; border-top: 1px solid rgba(0, 0, 0, .07); background: var(--dark); }
+    .navbar .navbar-nav .nav-link { padding: 12px 0 !important; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    .navbar .navbar-nav .nav-item:last-child .nav-link { border-bottom: none; }
 }
 
-/* 2. Botón de menú en estado normal (Muestra las 3 líneas por defecto) */
 .navbar-toggler {
     background-color: var(--primary) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    padding: 10px 14px !important;
-    border-radius: 12px !important;
-    margin-right: 5px;
-    box-shadow: 0 4px 15px rgba(255, 111, 15, 0.35) !important;
+    padding: 10px 14px !important; border-radius: 12px !important;
+    margin-right: 5px; box-shadow: 0 4px 15px rgba(255, 111, 15, 0.35) !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
-
-/* Icono predeterminado: 3 líneas blancas */
 .navbar-toggler .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     transition: transform 0.3s ease !important;
 }
-
-/* 3. Estado ABIERTO (Muestra la X únicamente cuando el menú se despliega) */
 .navbar:has(.navbar-collapse.show) .navbar-toggler,
 .navbar-toggler[aria-expanded="true"] {
     background-color: var(--primary-hover) !important;
 }
-
 .navbar:has(.navbar-collapse.show) .navbar-toggler .navbar-toggler-icon,
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M6 6l18 18M6 24L24 6'/%3e%3c/svg%3e") !important;
     transform: rotate(90deg);
-}
-
-/* 4. Interacción al presionar */
-.navbar-toggler:hover,
-.navbar-toggler:focus {
-    outline: none !important;
-    box-shadow: 0 6px 18px rgba(255, 111, 15, 0.5) !important;
-}
-
-.navbar-toggler:active {
-    transform: scale(0.92);
-}
-
-/* ==========================================================================
-   TARJETAS, DECORACIÓN Y SEPARADOR DE INFORMACIÓN
-   ========================================================================== */
-
-/* 1. Barra de acento superior en tarjetas */
-.project-item::before,
-.causes-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--fides-accent) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-}
-
-.project-item:hover::before,
-.causes-item:hover::before {
-    opacity: 1;
-}
-
-/* 2. Etiquetas flotantes sobre imágenes */
-.card-badge-overlay {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: rgba(11, 25, 44, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #ffffff;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    z-index: 2;
-}
-
-/* 3. Separador elegante de información */
-.info-divider {
-    position: relative;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(15, 46, 34, 0.15) 50%, transparent 100%);
-    margin: 20px 0;
-    border: none;
-}
-
-.info-divider::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(255, 111, 15, 0.6);
-}
-
-/* 4. Estilización del Reproductor / Widget de Spotify */
-.spotify-card {
-    background: linear-gradient(145deg, #121212 0%, #1a1a1a 100%) !important;
-    border-radius: var(--fides-radius) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    overflow: hidden;
-}
-
-.spotify-card iframe {
-    border-radius: 12px;
-}
-
-/* 5. Soporte para área segura en dispositivos móviles */
-@supports (padding: max(0px)) {
-    .fixed-top,
-    .whatsapp-float {
-        padding-left: max(15px, env(safe-area-inset-left));
-        padding-right: max(15px, env(safe-area-inset-right));
-    }
-    
-    .whatsapp-float {
-        bottom: max(30px, env(safe-area-inset-bottom));
-        right: max(30px, env(safe-area-inset-right));
-    }
-}
-
-/* Skeleton Loader animado para contenido en carga */
-.skeleton {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: skeleton-loading 1.5s infinite;
-    border-radius: 8px;
-}
-
-@keyframes skeleton-loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* Banner de Consentimiento de Cookies / Privacidad */
-.cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    max-width: 480px;
-    background: rgba(11, 25, 44, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: var(--fides-radius);
-    padding: 20px;
-    color: #ffffff;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.cookie-banner .btn-accept {
-    background-color: var(--primary);
-    color: #ffffff;
-    border-radius: 30px;
-    border: none;
-    padding: 8px 20px;
-    font-weight: 600;
-    transition: background 0.3s ease;
-}
-
-.cookie-banner .btn-accept:hover {
-    background-color: var(--primary-hover);
-}
-
-/* ==========================================================================
-   MEJORAS GENERALES DE INTERFAZ Y EXPERIENCIA DE USUARIO (UX/UI)
-   ========================================================================== */
-
-/* 1. Transición suave al deslizar la página */
-html {
-    scroll-behavior: smooth;
-}
-
-/* 2. Resplandor e indicadores en campos de formularios */
-.form-control:focus, 
-.form-select:focus {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 4px rgba(255, 111, 15, 0.18) !important;
-    outline: none !important;
-}
-
-/* 3. Elevación y zoom suave en tarjetas de contenido */
-.project-item, 
-.causes-item, 
-.service-item {
-    transition: transform 0.4s var(--easing-apple), box-shadow 0.4s var(--easing-apple) !important;
-    overflow: hidden !important;
-}
-
-.project-item:hover, 
-.causes-item:hover, 
-.service-item:hover {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 18px 36px rgba(11, 25, 44, 0.12) !important;
-}
-
-.project-item img, 
-.causes-item img {
-    transition: transform 0.6s var(--easing-apple) !important;
-}
-
-.project-item:hover img, 
-.causes-item:hover img {
-    transform: scale(1.05) !important;
-}
-
-/* 4. Animación en los enlaces del pie de página */
-.footer .btn.btn-link {
-    transition: transform 0.3s ease, color 0.3s ease !important;
-}
-
-.footer .btn.btn-link:hover {
-    transform: translateX(6px) !important;
-    color: var(--primary) !important;
-}
-
-/* 5. Rendimiento de animaciones por hardware */
-.btn-primary, 
-.navbar-toggler, 
-.project-item, 
-.whatsapp-float {
-    will-change: transform;
-}
-
-/* ==========================================================================
-   OPTIMIZACIONES FINALES DE EXPERIENCIA DE USUARIO Y DETALLES TÁCTILES
-   ========================================================================== */
-
-/* 1. Tooltips y globos de información accesibles */
-[data-tooltip] {
-    position: relative;
-    cursor: pointer;
-}
-
-[data-tooltip]::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%) translateY(5px);
-    background: var(--fides-dark);
-    color: #ffffff;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s var(--easing-apple);
-    pointer-events: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-}
-
-[data-tooltip]:hover::before {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* 2. Feedback en botones táctiles (Efecto 'Click/Tap' en móviles) */
-.btn:active, 
-.card-badge-overlay:active, 
-.logo-aliado:active {
-    transform: scale(0.96) !important;
-    transition: transform 0.1s ease !important;
-}
-
-/* 3. Deshabilitación de transiciones molestas durante el redimensionado */
-.resize-animation-stopper * {
-    animation-duration: 0s !important;
-    transition-duration: 0s !important;
-}
-
-/* 4. Optimización de imágenes para carga progresiva */
-img {
-    content-visibility: auto;
-}
-
-/* ==========================================================================
-   CORRECCIÓN DE SALTO REPENTINO EN IMÁGENES DE PROYECTOS (MÓVIL)
-   ========================================================================== */
-
-.project-item {
-    position: relative;
-    border-radius: var(--fides-radius, 16px);
-    overflow: hidden;
-    background: #ffffff;
-    /* Forzar aceleración por hardware para eliminar saltos de renderizado */
-    transform: translateZ(0);
-    will-change: transform, box-shadow;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.project-item img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    /* Suaviza de forma radical cualquier cambio de escala en la imagen */
-    transform: translateZ(0);
-    will-change: transform;
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-/* Comportamiento optimizado para pantallas táctiles y móviles */
-@media (max-width: 991.98px) {
-    .project-item:hover {
-        transform: none !important; /* Previene saltos bruscos en touch devices */
-    }
-    
-    .project-item:hover img {
-        transform: scale(1.03) !important; /* Zoom contenido y controlado en móvil */
-    }
 }
