@@ -1558,3 +1558,41 @@ html {
 img {
     content-visibility: auto;
 }
+
+/* ==========================================================================
+   CORRECCIÓN DE SALTO REPENTINO EN IMÁGENES DE PROYECTOS (MÓVIL)
+   ========================================================================== */
+
+.project-item {
+    position: relative;
+    border-radius: var(--fides-radius, 16px);
+    overflow: hidden;
+    background: #ffffff;
+    /* Forzar aceleración por hardware para eliminar saltos de renderizado */
+    transform: translateZ(0);
+    will-change: transform, box-shadow;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.project-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* Suaviza de forma radical cualquier cambio de escala en la imagen */
+    transform: translateZ(0);
+    will-change: transform;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Comportamiento optimizado para pantallas táctiles y móviles */
+@media (max-width: 991.98px) {
+    .project-item:hover {
+        transform: none !important; /* Previene saltos bruscos en touch devices */
+    }
+    
+    .project-item:hover img {
+        transform: scale(1.03) !important; /* Zoom contenido y controlado en móvil */
+    }
+}
